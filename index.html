@@ -24,17 +24,17 @@
 <body>
 
     <div class="card login-card p-4 text-center">
-        <div class="logo-placeholder">🎓</div>
+        <div class="logo-placeholder">⋆˚꩜｡</div>
         <h2 class="fw-bold mb-4">Login</h2>
         
         <form id="loginForm">
             <div class="mb-3 text-start">
-                <label class="badge bg-dark mb-1">Username</label>
-                <input type="text" id="username" class="form-control rounded-pill text-center" placeholder="Enter here" required>
+                <label class="badge bg-dark mb-1"></label>
+               <input type="text" id="username" class="form-control rounded-pill text-center" placeholder="Username" required>
             </div>
             <div class="mb-3 text-start">
-                <label class="badge bg-dark mb-1">Password</label>
-                <input type="password" id="password" class="form-control rounded-pill text-center" placeholder="********" required>
+                <label class="badge bg-dark mb-1"></label>
+                <input type="password" id="password" class="form-control rounded-pill text-center" placeholder="Password" required>
             </div>
             
             <div class="form-check form-switch mb-3 text-start">
@@ -48,23 +48,44 @@
             </div>
         </form>
 
-        <p class="mt-3 small"><a href="https://github.com" class="text-muted">Forgot username / password?</a></p>
+    
     </div>
 
-    <script>
-       
-        function handleLogin() {
-            let user = document.getElementById('username').value;
-            let pass = document.getElementById('password').value;
+<script>
+   
+    let attempt_counter = 0;
 
-         
-            if (user === "student" && pass === "1234") {
-                window.location.href = "notebooks.html";
+    function handleLogin() {
+       
+        let user = document.getElementById('username').value;
+        let pass = document.getElementById('password').value;
+        
+        
+        if (attempt_counter >= 3) {
+            alert("Access denied. Account locked!");
+            return; 
+        }
+
+       
+        if (user === "student" && pass === "1234") {
+            alert("Welcome " + user + "!");
+            attempt_counter = 0; // Reset on success
+            window.location.href = "notebooks.html";
+        } 
+        else {
+           
+            attempt_counter++;
+            
+           
+            if (attempt_counter < 3) {
+                alert("Invalid! Attempt " + attempt_counter + " of 3.");
             } else {
-               
-                alert("Invalid! (Try student/1234)");
+                alert("Access denied. Account locked after 3 attempts!");
+                
             }
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
