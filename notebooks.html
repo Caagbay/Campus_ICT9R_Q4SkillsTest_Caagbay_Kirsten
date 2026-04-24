@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notebooks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        .sidebar { height: 100vh; background: #667e9e; color: white; width: 250px; position: fixed; }
+        .main-content { margin-left: 250px; padding: 40px; background-image: url(https://i.pinimg.com/736x/42/33/3e/42333eee4f94510f25e0218a82c6cab7.jpg); min-height: 100vh; }
+        .subject-card { border-radius: 15px; border: none; }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar p-4">
+        <div class="text-center mb-5">⋆˚꩜｡</div>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Dashboard</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Virtual Notebooks</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link text-dark">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="mb-4">
+            <h1 class="badge bg-dark fs-4 p-2 px-4">NOTEBOOKS</h1>
+            <p class="text-muted mt-2">Select a subject to view your class files</p>
+        </header>
+
+        <div class="row g-4" id="notebook-container"></div>
+
+    </main>
+
+    <script>
+       
+        const subjects = [
+            { name: "Filipino", teacher: "Ms. Francisco" },
+            { name: "English", teacher: "Ms. Avila" },
+            { name: "Math", teacher: "Mr. Verba" },
+            { name: "Science", teacher: "Ms. Mendaro" },
+            { name: "Social Studies", teacher: "Mr. Reynoso" },
+            { name: "Values Ed", teacher: "Mr. Buntile" }
+        ];
+
+      //nakakaiyak  naito
+       function displayNotebooks() {
+            let container = document.getElementById('notebook-container');
+            let content = "";
+
+          
+            container.innerHTML = content;
+        }
+
+        window.onload = displayNotebooks;
+    </script>
+
+</body>
+</html>
